@@ -1,4 +1,3 @@
-
 name: 'Auto Preprocessing Workflow'
 
 on:
@@ -8,9 +7,7 @@ on:
 
 jobs:
   run-preprocessing:
-
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -25,7 +22,7 @@ jobs:
 
       - name: Run preprocessing script
         run: python automate_M-RIZQY-PUTRA-.py
-   
+
       - name: Commit and push processed data
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
