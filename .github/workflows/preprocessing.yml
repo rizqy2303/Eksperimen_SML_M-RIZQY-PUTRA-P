@@ -1,0 +1,33 @@
+
+name: 'Auto Preprocessing Workflow'
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  run-preprocessing:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run preprocessing script
+        run: python automate_Nama-siswa.py
+
+      - name: Commit and push processed data
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: 'Auto-update: Generate processed dataset'
+          file_pattern: namadataset_preprocessing/*
