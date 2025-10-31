@@ -24,8 +24,8 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Run preprocessing script
-        run: python automate_Nama-siswa.py
-
+        run: python automate_M-RIZQY-PUTRA-.py
+   
       - name: Commit and push processed data
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
